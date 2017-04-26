@@ -1,0 +1,42 @@
+[user]
+	email = github@o08.net
+	name = Alvaro Fussen
+[push]
+	default = simple
+[merge]
+	tool = meld
+[pull]
+	rebase = preserve
+[status]
+    submoduleSummary = true
+    showUntrackedFiles = all
+[diff "zip"]
+    textconv = unzip -v
+[diff "pdf"]
+    textconv = pdfinfo
+[diff "bin"]
+    textconv = hexdump -v -C
+[alias]
+    lal          = status
+    lala         = status
+    cam          = "!f() { git add --all; git commit -m \"$1\"; }; f"
+    cm           = commit -m
+    car          = commit -a --amend -C HEAD
+    co           = checkout
+    cp           = cherry-pick
+    bu           = branch --no-merged
+    su           = submodule update --init
+    fm           = merge --ff-only
+    fl           = push --force-with-lease
+    prettygraph  = log --graph --simplify-by-decoration --pretty=format:'%d' --all
+    showbranches = branch --list -r
+    showtags     = tag --list
+    difw         = diff --word-diff=color --word-diff-regex=.
+    difc         = diff --cached
+    search       = log --grep
+    ls           = log --oneline --decorate
+    lr           = reflog show --date=relative
+    hash         = "!f() { git log --oneline | grep $1 | awk '{print $1}'; }; f"
+    lsu          = "!f() { git ls-files -v | grep '^[[:lower:]]'; }; f"
+[rerere]
+	enabled = 1
